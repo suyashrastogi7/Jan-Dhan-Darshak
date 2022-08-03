@@ -11,6 +11,8 @@ import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 import Svg, { Path } from "react-native-svg";
 
+import Back from "../assets/icons/back";
+
 import { useFonts } from "expo-font";
 
 const Header = ({ title, subtitle, showFilters }) => {
@@ -32,7 +34,7 @@ const Header = ({ title, subtitle, showFilters }) => {
                 <TouchableOpacity
                     style={styles.back}
                     onPress={() => {
-                        if (route.name === "Home") {
+                        if (route.name === "Find") {
                             //Open Drawer Navigation
                             navigation.openDrawer();
                         } else {
@@ -40,21 +42,8 @@ const Header = ({ title, subtitle, showFilters }) => {
                         }
                     }}
                 >
-                    {route.name !== "Home" ? (
-                        <Svg
-                            width={35}
-                            height={25}
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            color="#101010"
-                        >
-                            <Path
-                                stroke="#000"
-                                strokeWidth={3}
-                                strokeLinecap="round"
-                                d="M2 7h22M1 6.586 6.586 1M7.071 12.657 1.414 7"
-                            />
-                        </Svg>
+                    {route.name !== "Find" ? (
+                        <Back />
                     ) : (
                         <Svg
                             width={32}
@@ -71,7 +60,7 @@ const Header = ({ title, subtitle, showFilters }) => {
                         </Svg>
                     )}
                 </TouchableOpacity>
-                {route.name === "Home" && (
+                {route.name === "Find" && (
                     <Svg
                         width={21}
                         height={28}
@@ -89,7 +78,7 @@ const Header = ({ title, subtitle, showFilters }) => {
                     <Text style={styles.subtitle}>{subtitle}</Text>
                 </View>
             </View>
-            {route.name === "Home" ? (
+            {route.name === "Find" ? (
                 <View style={styles.filterWrapper}>
                     <TextInput
                         value={search}
@@ -99,7 +88,7 @@ const Header = ({ title, subtitle, showFilters }) => {
                     />
                 </View>
             ) : null}
-            {route.name === "Home" ? (
+            {route.name === "Find" ? (
                 <View style={styles.filterButtonGroup}>
                     <TouchableOpacity style={styles.filterButton}>
                         <Text style={styles.filterButtonText}>Relevance</Text>

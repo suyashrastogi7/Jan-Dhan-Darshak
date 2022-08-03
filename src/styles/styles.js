@@ -28,6 +28,36 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
     },
+    modalContainer: {
+        width: Dimensions.get("window").width,
+        backgroundColor: "#fff",
+        paddingVertical: 30,
+        paddingHorizontal: 20,
+        borderRadius: 25,
+        position: "absolute",
+        bottom: 0,
+        flexDirection: "column",
+        justifyContent: "space-between",
+        height: Dimensions.get("window").height / 1.4,
+    },
+    headContainer: {
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        marginBottom: 15,
+    },
+    modalHeading: {
+        fontSize: 26,
+        fontWeight: "bold",
+        textAlign: "center",
+        position: "absolute",
+        left: Dimensions.get("window").width / 3.3,
+    },
+    modalText: {
+        fontSize: 18,
+        textAlign: "justify",
+        paddingHorizontal: 10,
+    },
 });
 
 export default styles;

@@ -8,10 +8,6 @@ import CustomMenu from "../components/CustomMenu";
 import MapBox from "./MapBox";
 
 //Modals
-import About from "../components/Modals/AboutUs";
-import ChangeLanguage from "../components/Modals/ChangeLanguage";
-import Disclaimer from "../components/Modals/Disclaimer";
-import SavedLocations from "../components/Modals/SavedLocations";
 import TrackRequest from "../components/Modals/TrackRequest";
 import MissingBankSuggestion from "../components/Modals/MissingBankSuggestion";
 import Help from "../components/Modals/Help";
@@ -22,28 +18,18 @@ const Home = ({ navigation }) => {
     const [current, setCurrent] = useState("test");
     return (
         <Drawer.Navigator
-            drawerContent={(props) => <CustomMenu {...props} />}
-            initialRouteName="Home"
+            drawerContent={(props) => (
+                <CustomMenu {...props} naigation={navigation} />
+            )}
+            initialRouteName="Find"
         >
             <Drawer.Screen
-                name="Home"
+                name="Find"
                 component={MapBox}
                 options={{
                     headerShown: false,
                     drawerIcon: () => (
                         <Image source={require("../assets/icons/icon.png")} />
-                    ),
-                }}
-            />
-            <Drawer.Screen
-                name="Change Language"
-                component={ChangeLanguage}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => (
-                        <Image
-                            source={require("../assets/icons/changelanguage.png")}
-                        />
                     ),
                 }}
             />
@@ -60,44 +46,12 @@ const Home = ({ navigation }) => {
                 }}
             />
             <Drawer.Screen
-                name="Saved Location"
-                component={SavedLocations}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => (
-                        <Image source={require("../assets/icons/icon.png")} />
-                    ),
-                }}
-            />
-            <Drawer.Screen
                 name="Track Request/ Suggestion"
-                component={MapBox}
+                component={TrackRequest}
                 options={{
                     headerShown: false,
                     drawerIcon: () => (
                         <Image source={require("../assets/icons/icon.png")} />
-                    ),
-                }}
-            />
-            <Drawer.Screen
-                name="About Us"
-                component={About}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => (
-                        <Image source={require("../assets/icons/about.png")} />
-                    ),
-                }}
-            />
-            <Drawer.Screen
-                name="Disclaimer"
-                component={Disclaimer}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => (
-                        <Image
-                            source={require("../assets/icons/disclaimer.png")}
-                        />
                     ),
                 }}
             />
